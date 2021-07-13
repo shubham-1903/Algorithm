@@ -51,7 +51,7 @@ int main()
   return 0;
 }
 
-//! Without using vector<int> Woriking correct
+//! Without using vector<int> Working correct
 // #include <iostream>
 // using namespace std;
 // void merge(int arr[], int low, int mid, int high)
