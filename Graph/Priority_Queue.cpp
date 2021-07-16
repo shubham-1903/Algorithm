@@ -48,8 +48,8 @@ public:
   }
   int parent(int i)
   {
-    cout << "parent( " << i << " ): " << ceil(float(i)/2)-1;
-    return (2*i) - 1;
+    cout << "parent( " << i << " ): " << ceil((float(i)/2)-1);
+    return int(ceil((float(i)/2)-1));
   }
   int getMinimum() { return v[0]; }
   int extractMin()
