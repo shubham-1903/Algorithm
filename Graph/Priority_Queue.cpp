@@ -9,13 +9,13 @@ public:
   pq(vector<int> c, int n)
   {
     heapSize = n;
-    for (int i = 0; i <= n; i++)
-      v[i] = c.at(i);
+    for (int i = 1; i <= n; i++)
+      v[i] = c.at(i-1);
   }
   void printheap()
   {
     cout << "heap print: ";
-    for (int i = 0; i <= heapSize; i++)
+    for (int i = 1; i <= heapSize; i++)
       cout << v[i] << " ";
     cout << endl;
   }
@@ -25,7 +25,7 @@ public:
     int j, key;
     key = v[i];
     j = 2 * i;
-    while (j <= n - 1)
+    while (j <= n )
     {
       cout << "lp " << endl;
       if (j < n and v[j + 1] < v[j])
@@ -40,18 +40,19 @@ public:
   void makeHeap(int n)
   {
     cout << "mk" << endl;
-    for (int i = n / 2; i >= 0; i--)
+    for (int i = n / 2; i >= 1; i--)
       heapAdjust(i, n);
-    cout << "Heap Make: ";
-    for (int i = 0; i <= n; i++)
+    cout << "\nHeap Make: ";
+    for (int i = 1; i <= n; i++)
       cout << v[i] << " ";
   }
   int parent(int i)
   {
-    cout << "parent( " << i << " ): " << ceil((float(i)/2)-1);
-    return int(ceil((float(i)/2)-1));
+    if(i==1) return 1;
+    cout << "parent( " << i << " ): " << i/2<< endl;
+    return i/2;
   }
-  int getMinimum() { return v[0]; }
+  int getMinimum() { return v[1]; }
   int extractMin()
   {
     if (heapSize <= 0)
@@ -59,18 +60,19 @@ public:
     if (heapSize == 1)
     {
       heapSize -= 1;
-      return v[0];
+      return v[1];
     }
-    int m = v[0];
-    v[0] = v[heapSize];
+    int m = v[1];
+    v[1] = v[heapSize];
     heapSize -= 1;
-    heapAdjust(0, heapSize);
+    heapAdjust(1, heapSize);
     return m;
   }
   void decreaseKey(int i, int newVal)
   {
     v[i] = newVal;
-    while (i >= 0 and v[parent(i)] > v[i])
+    printheap();
+    while (i >= 1 and v[parent(i)] > v[i])
     {
       cout<<"loop"<<endl;
       int t = v[parent(i)];
@@ -91,16 +93,18 @@ int main()
     cin >> x;
     v.push_back(x);
   }
-  pq ptq(v, n - 1);
+  pq ptq(v, n);
   for (auto x : v)
     cout << x << " ";
   cout << endl;
-  ptq.makeHeap(n - 1);
+  ptq.makeHeap(n );
   ptq.printheap();
   cout << "Get Min: " << ptq.getMinimum() << endl;
   cout << "Extract Min: " << ptq.extractMin() << endl;
   cout << "Get Min: " << ptq.getMinimum() << endl;
-  ptq.decreaseKey(1, 3);
+  ptq.printheap();
+
+  ptq.decreaseKey(2, 1);
   ptq.printheap();
 
   return 0;
