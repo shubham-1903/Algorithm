@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
+//!Stl sorting approach using ratio with pair stl
 void Knapsack(vector<int> profit, vector<int> weight, int n, int W)
 {
   vector<pair<double, int>> ratio;
