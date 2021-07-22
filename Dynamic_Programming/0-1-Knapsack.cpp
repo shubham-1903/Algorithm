@@ -50,20 +50,20 @@ void knapsack(int n,int W,int wt[],int p[])
   cout<<"Capacity: "<<w<<endl;
   for(int i=n;i>=1;i--)
   {
-    cout<<"h "<<i<<endl;
+    // cout<<"h "<<i<<endl;
     if(total_profit==x[i-1][w]){
-      cout<<x[i-1][w]<<"  "<<total_profit<<endl;
+      // cout<<x[i-1][w]<<"  "<<total_profit<<endl;
       continue;
     }
     else{
-      cout<<i<<" is included."<<endl;
+      cout<<"Item "<<i<<" is included."<<endl;
       w=w-wt[i];
-      cout<<"wt: "<<w<<endl;
+      // cout<<"wt: "<<w<<endl;
       total_profit=total_profit-p[i];
       if(total_profit==0) break;
     }
   }
-  cout<<"tt"<<total_profit<<endl;
+  // cout<<"tt"<<total_profit<<endl;
   cout<<endl;
   
   print(n,W);
