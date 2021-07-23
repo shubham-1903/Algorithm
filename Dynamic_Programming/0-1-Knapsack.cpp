@@ -64,7 +64,7 @@ void knapsack(int n,int W,int wt[],int p[])
     }
   }
   // cout<<"tt"<<total_profit<<endl;
-  cout<<endl;
+  // cout<<endl;
   
   print(n,W);
 }
