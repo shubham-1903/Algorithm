@@ -3,7 +3,7 @@
 using namespace std;
 
 //?Naive Solution
-void naive_max_min(vector<int> v,int n)
+void naive_max_min(int* v,int n)
 {
   int maximum = v[0];
   int minimum = v[0];
@@ -15,7 +15,7 @@ void naive_max_min(vector<int> v,int n)
   cout <<"Maximum number is: "<< maximum << "\n" <<"Minimum number is: "<< minimum << "\n"; 
 }
 //? Divide and Conquer Approach
-void max_min(vector<int> v,int i,int j,int &maximum,int &minimum)
+void max_min(int *v,int i,int j,int &maximum,int &minimum)
 {
   if(i==j) maximum = minimum = v[i];
   else if(i==j-1)
@@ -41,10 +41,12 @@ void max_min(vector<int> v,int i,int j,int &maximum,int &minimum)
 }
 int main()
 {
-  vector<int> v={5,4,1,2,6};
-  naive_max_min(v,v.size()); //?
+  // vector<int> v={5,4,1,2,6};
+  int n=5;
+  int v[5]={5,4,1,2,6};
+  naive_max_min(v,n); //?
   int maximum=INT_MIN,minimum=INT_MAX;
-  max_min(v,0,v.size()-1,maximum,minimum);
+  max_min(v,0,n-1,maximum,minimum);
   cout<<"Maximum is: "<< maximum <<"\n" <<"Minimum is: "<< minimum<<endl;
 
   return 0;
