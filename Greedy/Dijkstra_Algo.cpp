@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #include <iostream>
-const int V=6;
+const int V=9;
 using namespace std;
 int selectedMinVertex(vector<int> &value,vector<bool>& setMst)
 {
@@ -24,7 +24,7 @@ void find_mst(int graph[V][V])
 
   parent[0]=-1;
   value[0]=0;
-
+  int s=0;
   for(int i = 0; i < V-1; i++)
   {
     int U=selectedMinVertex(value,setMst);
@@ -38,9 +38,9 @@ void find_mst(int graph[V][V])
       }
     }
   }
-  cout<<"V -> V = Cost"<< endl;
-  for(int i = 1; i < V; i++)
-      cout << parent[i]<<" -> "<<i<<" = "<<value[i]<<endl;
+  cout<<"vertex"<<"   "<<"Distance from src"<<endl;
+  for(int i = 0; i < V; i++)
+      cout <<char(i+65)<<"  \t\t"<<value[i]<<endl;
 }
 int main()
 {
